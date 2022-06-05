@@ -60,9 +60,25 @@ buttons.forEach(button => {
     button.addEventListener('click', () => {
             jokenpoRound(button.className, computerPlay());
             gameOver();
-
-    });
+            });
 });
+
+/*if (playerScore === 5 || computerScore === 5 ) {
+    const playAgainButton = document.createElement('button');
+    playAgainButton.classList.add('playAgainButton');
+    playAgainButton.textContent ='Play Again';
+    const bodyContainer = document.querySelector('body');
+    bodyContainer.appendChild(playAgainButton);
+    
+
+    buttons.forEach(button => {
+        button.removeEventListener('click', () => {
+            jokenpoRound(button.className, computerPlay());
+            gameOver();
+        })
+})
+} */
+
 
 
     
