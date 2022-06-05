@@ -45,11 +45,29 @@ function jokenpoRound(playerSelection, computerSelection) {
     updateResultMessage();
 }
 
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
+    scoreBoard.textContent = "You: "+ playerScore +" Opponent: "+ computerScore;
+    
+}
+
+
 function gameOver() {
         if (playerScore === 5) {
             gameOverContainer.textContent = "You won the match!";
         } else if (computerScore === 5) {
             gameOverContainer.textContent = "You lost the match!";
+        }
+        if (playerScore === 5 || computerScore === 5 ) {
+            const playAgainButton = document.createElement('button');
+            playAgainButton.classList.add('playAgainButton');
+            playAgainButton.textContent ='Play Again';
+
+            const bodyContainer = document.querySelector('body');
+            bodyContainer.appendChild(playAgainButton);
+            
+            document.querySelector('.playAgainButton').addEventListener('click', resetScore());
         }
     }
     
