@@ -5,80 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="js-file.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>        
-        let playerScore = 0;
-        let computerScore = 0;
-        function computerPlay() {
-            const choices = ['rock', 'paper', 'scissors'];
-            const random = Math.floor(Math.random() * choices.length);
-            return choices[random];
-        }
-
-        function jokenpoRound(playerSelection, computerSelection) {
-            if (playerSelection === 'rock') {
-                if (computerSelection === 'rock') {
-                    return ("It's a tie!");
-                } else if (computerSelection === 'paper') {
-                    return ("You lose! Paper beats Rock")
-
-                } else {
-                    return ("You win! Rock beats Scissors")
-                }
-            } else if (playerSelection === 'paper') {
-                if (computerSelection === 'paper') {
-                    return ("It's a tie!");
-                } else if (computerSelection === 'scissors') {
-                    return ("You lose! Scissors beats Paper")
-                } else {
-                    return ("You win! Paper beats Rock")
-                }
-            } else if (playerSelection === 'scissors') {
-                if (computerSelection === 'scissors') {
-                    return ("It's a tie!");
-                } else if (computerSelection === 'rock') {
-                    return ("You lose! Rock beats Scissors")
-                } else {
-                    return ("You win! Scissors beats Paper")
-                }
-            }
-        }        
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt("Please type your move:").toLowerCase();
-                const computerSelection = computerPlay();
-                
-                while ((playerSelection !== 'rock') && (playerSelection !== 'paper') && (playerSelection !== 'scissors') && (playerSelection !== null)) {
-                    playerSelection = prompt("Not valid. Pick between rock, paper or scissors.").toLowerCase();
-                }
-               
-                console.log("You played " + playerSelection);
-                console.log("Your opponent played " + computerSelection);
-
-                console.log(jokenpoRound(playerSelection,computerSelection));
-                if (jokenpoRound(playerSelection, computerSelection).includes("win")){
-                    console.log("SCORE: You " + ++playerScore + " Opponent " + computerScore)
-                } else if (jokenpoRound(playerSelection, computerSelection).includes("lose")) {
-                    console.log("SCORE: You " + playerScore + " Opponent " + ++computerScore)
-                } else { 
-                    console.log("SCORE: You " + playerScore + " Opponent " + computerScore) 
-                }
-
-                if (i === 4) {
-                    console.log("Final Score: \nYou " + playerScore + " \nOpponent " + computerScore)
-                    if (playerScore > computerScore) {
-                        console.log("You won the game!")
-                    } else if ( computerScore > playerScore) {
-                        console.log("You lost the game!")
-                    } else { 
-                        console.log("It's a tie!")}
-                }
-            }
-        }     
-        game();
-
-
-    </script>
+    <button id="choiceButton" class="rock">Rock</button>
+    <button id="choiceButton" class="paper">Paper</button>
+    <button id="choiceButton" class="scissors">Scissors</button>
+    <div class="moveChoice"></div>
+    <p class="resultMessage"></p>
+    <div class="currentScore">Current Score</div>
+    <div class="gameOver"></div>
 </body>
 </html>
