@@ -1,4 +1,31 @@
-.curentScore {
-    color: green;
-    font-size: 30px;
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Helvetica, Arial, sans-serif;
+    gap: 0px;
+}
+
+.moveChoice {
+    min-height: 30px;
+}
+
+.resultMessage {
+    min-height: 30px;
+}
+
+.choiceButtons {
+    margin-bottom: 10px;
+}
+
+.currentScore {
+    font-size: 15px;
+}
+
+.gameOver {
+    color:rgba(255, 145, 0, 0.788);
+    margin-bottom: 10px;
+    min-height: 30px;
 }
