@@ -22,6 +22,18 @@ function updateResultMessage() {
 
 }
 
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
+
+function enableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = false
+    })
+}
+
 function jokenpoRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
@@ -45,18 +57,34 @@ function jokenpoRound(playerSelection, computerSelection) {
     updateResultMessage();
 }
 
+function playAgainButton() {
+    const playAgainButton = document.createElement('button');
+    playAgainButton.classList.add('playAgainButton');
+    playAgainButton.textContent ="Play Again";
+    currentScore.appendChild(playAgainButton);
+    playAgainButton.addEventListener('click', () => {
+        resetScore();
+        playAgainButton.style.display = 'none';
+    });
+}
+
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
     scoreBoard.textContent = "You: "+ playerScore +" Opponent: "+ computerScore;
-    
+    enableButtons();
 }
 
 function gameOver() {
         if (playerScore === 5) {
             gameOverContainer.textContent = "You won the match!";
+            disableButtons();
+            playAgainButton();
+
         } else if (computerScore === 5) {
             gameOverContainer.textContent = "You lost the match!";
+            disableButtons();
+            playAgainButton();
         }
 }
     
